@@ -1,1 +1,1 @@
-web: gunicorn historical.wsgi
+web: gunicorn PickUp.wsgi -b 0.0.0.0:$PORT
