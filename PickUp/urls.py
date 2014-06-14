@@ -19,3 +19,6 @@ urlpatterns = patterns('',
     url(r'^accounts/', include(accounts.urls)),
     url(r'^', include(main.urls)),
 )
+
+from django.conf import settings
+urlpatterns += patterns('', (r'^static/(.*)$', 'django.views.static.serve', { 'document_root': settings.STATIC_ROOT }), ) 
