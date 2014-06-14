@@ -7,13 +7,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from accounts.models import UserProfile
-from django.contrib import messages
 
 def index(request):
     return create_account(request)
 
 def create_account(request):
-    def render_page(,user_exists=False):
+    def render_page(user_exists=False):
         params = {'user_exists': user_exists}
         return render(request, 'accounts/create_account.html', params)
         
@@ -32,7 +31,7 @@ def create_account(request):
             return redirect('main.views.home')
     else:
         return render_page()
-
+        alert
         
 def login(request):
     def render_page(invalid_login=False):
