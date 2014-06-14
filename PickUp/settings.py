@@ -13,8 +13,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_DIR, "templates"),
-    # here you can add another templates directory if you wish.
+    os.path.join(BASE_DIR, 'templates').replace('\\','/'),
 )
 
 # Quick-start development settings - unsuitable for production
@@ -89,6 +88,3 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates').replace('\\','/'),
-)
