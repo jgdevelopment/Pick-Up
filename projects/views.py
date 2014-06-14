@@ -41,7 +41,7 @@ def create_project(request):
                 smtpserver.sendmail(gmail_user, to, msg)
                 smtpserver.close()
         return redirect('main.views.home')
-        return render_page('Event Created!')
+    return render_page('Event Created!')
 
 
     
