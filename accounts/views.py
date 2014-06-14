@@ -13,8 +13,8 @@ def index(request):
     return create_account(request)
 
 def create_account(request):
-    def render_page(invalid_login=False,user_exists=False):
-        params = {'user_exists': user_exists,'invalid_login': invalid_login}
+    def render_page(,user_exists=False):
+        params = {'user_exists': user_exists}
         return render(request, 'accounts/create_account.html', params)
         
     if request.method == 'POST':
@@ -31,7 +31,7 @@ def create_account(request):
             profile.save()
             return redirect('main.views.home')
     else:
-        return render_page(invalid_login=True)
+        return render_page()
 
         
 def login(request):
