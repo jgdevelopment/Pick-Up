@@ -11,6 +11,7 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidde
 from django.core import serializers
 import smtplib
 import logging
+from smtplib import SMTPRecipientsRefused
 
 @authenticate
 def create_project(request):
@@ -27,7 +28,7 @@ def create_project(request):
         users = UserProfile.objects.all()
         for user in users:
             if user!=current_user_profile:
-                to = str(user.email)
+                to = user.email()
                 gmail_user = 'meetupconfirm@gmail.com'
                 gmail_pwd = 'dum04sci'
                 smtpserver = smtplib.SMTP("smtp.gmail.com",587)
@@ -36,7 +37,9 @@ def create_project(request):
                 smtpserver.ehlo
                 smtpserver.login(gmail_user, gmail_pwd)
                 header = 'To:' + to + '\n' + 'From: ' + gmail_user + '\n' + 'Subject:' + description_name+ '\n' 
-                msg = header + """\n Hey Guys, \n \n Let's go play in 30 minutes at the """ + description_name+ """ \n\n See you there, \n """+current_user_profile.username
+                msg = header + """\n Hey Guys, \n \n Let's go play in 30 minutes at the """ + Location_name+ """ \n\n See you there, \n """+current_user_profile.username
+                smtpserver.sendmail(gmail_user, to, msg)
+                smtpserver.close()
         return redirect('main.views.home')
     return render_page()
 
