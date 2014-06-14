@@ -21,7 +21,8 @@ def create_project(request):
     if request.method == 'POST':
         description_name = request.POST.get('description-name')
         location_name = request.POST.get('location-name')
-        
+        time = request.POST.get('time')
+
         if request.user.is_authenticated():
             current_user_profile = request.user
         
@@ -37,7 +38,7 @@ def create_project(request):
                 smtpserver.ehlo
                 smtpserver.login(gmail_user, gmail_pwd)
                 header = 'To:' + to + '\n' + 'From: ' + gmail_user + '\n' + 'Subject:' + description_name+ '\n' 
-                msg = header + """\n Hey Guys, \n \n Let's go meet in 30 minutes at the """ + location_name+ """ \n\n See you there, \n """+current_user_profile.username
+                msg = header + """\n Hey Guys, \n \n Let's go meet at """+time+""" at the """ + location_name+ """ \n\n See you there, \n """+current_user_profile.username
                 smtpserver.sendmail(gmail_user, to, msg)
                 smtpserver.close()
         return redirect('main.views.home')
