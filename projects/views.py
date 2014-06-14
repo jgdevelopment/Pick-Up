@@ -38,7 +38,7 @@ def create_project(request):
                 smtpserver.ehlo
                 smtpserver.login(gmail_user, gmail_pwd)
                 header = 'To:' + to + '\n' + 'From: ' + gmail_user + '\n' + 'Subject:' + description_name+ '\n' 
-                msg = header + """\n Hey Guys, \n \n Let's go meet at """+time+""" at the """ + location_name+ """ \n\n See you there, \n """+current_user_profile.username
+                msg = header + """\n Hey Guys, \n \n Let's go meet at """+time+""" at """ + location_name+ """ \n\n See you there, \n """+current_user_profile.username
                 smtpserver.sendmail(gmail_user, to, msg)
                 smtpserver.close()
         return redirect('main.views.home')
