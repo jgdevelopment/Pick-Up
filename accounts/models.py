@@ -14,6 +14,9 @@ class UserProfile(models.Model):
         
     def __str__(self):
         return 'UserProfile: ' + self.user.username
+
+    def email(self):
+        self.user.email
         
 def authenticate(func):
     @wraps(func)

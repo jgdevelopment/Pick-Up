@@ -9,6 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 <title>Home</title>
+<link rel="stylesheet" type="text/css" href="{% static 'grayscale/css/default2.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'grayscale/css/component2.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/timeline.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/component.css' %}" />
 <link rel="shortcut icon" href="../favicon.ico"> 
 <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 </head>
@@ -19,6 +24,14 @@
 <div style="text-align:center;">
 </div>
 <br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<form action='/projects/create/{{ slug }}'>
+<center><button class="btn btn-1 btn-1a" style="top:-80px;font-size:20px;">Create Project</button></center>
+</form>
 </body>
 </html>
 {% endblock %}

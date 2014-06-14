@@ -494,6 +494,10 @@ cite {
 .text-justify {
   text-align: justify;
 }
+.centered
+{
+    text-align:center;
+}
 .text-muted {
   color: #999;
 }
@@ -742,6 +746,7 @@ pre code {
     width: 750px;
   }
 }
+
 @media (min-width: 992px) {
   .container {
     width: 970px;
@@ -1975,6 +1980,10 @@ select[multiple].input-lg {
 }
 .form-horizontal .form-control-static {
   padding-top: 7px;
+}
+@font-face {
+    font-family: 'lato'; /*a name to be used later*/
+    src: url('http://domain.com/fonts/font.ttf'); /*URL to font*/
 }
 @media (min-width: 768px) {
   .form-horizontal .control-label {

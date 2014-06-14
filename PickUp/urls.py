@@ -6,6 +6,9 @@ admin.autodiscover()
 import accounts
 from accounts import urls
 
+import projects
+from projects import urls,views
+
 import main
 from main import urls
 
@@ -18,6 +21,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include(accounts.urls)),
     url(r'^', include(main.urls)),
+    url(r'^projects/', include(projects.urls)),
+
 )
 
 from django.conf import settings
