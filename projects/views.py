@@ -40,8 +40,7 @@ def create_project(request):
                 msg = header + """\n Hey Guys, \n \n Let's go play in 30 minutes at the """ + location_name+ """ \n\n See you there, \n """+current_user_profile.username
                 smtpserver.sendmail(gmail_user, to, msg)
                 smtpserver.close()
-        return redirect('main.views.home')
-    return render_page()
+        return render_page('Event Created!')
 
 
     

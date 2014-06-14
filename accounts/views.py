@@ -31,7 +31,7 @@ def create_account(request):
             profile.save()
             return redirect('main.views.home')
     else:
-        return render_page()
+        return render_page(invalid_login=True)
 
         
 def login(request):
